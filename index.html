@@ -3,34 +3,92 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>吉商课程表下载</title>
+  <meta name="theme-color" content="#f8f6fc">
+  <meta name="description" content="吉商课程表 Android 正式版下载。课表导入、指定周次、考试安排和应用内更新。交流与反馈：QQ群 549013926。">
+  <title>吉商课程表 · GitHub 备用下载</title>
+  <script type="module" src="./app.js"></script>
   <style>
-    :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
-    body { margin: 0; padding: 32px 18px; background: Canvas; color: CanvasText; }
-    main { max-width: 560px; margin: 6vh auto; }
-    h1 { font-size: 1.7rem; }
-    #status { color: GrayText; }
-    #download { display: inline-block; margin: 20px 0; padding: 14px 22px;
-      border-radius: 12px; background: #6750a4; color: white; font-weight: 700;
-      text-decoration: none; }
-    #download[hidden], #details[hidden] { display: none; }
-    .secondary { color: GrayText; line-height: 1.6; }
-    #notes { white-space: pre-wrap; }
-    code { overflow-wrap: anywhere; }
+    :root{--ink:#332a48;--muted:#6b627c;--purple:#7053bd;--dark-purple:#6245af;--line:#e4ddee;--paper:#f8f6fc}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Microsoft YaHei","PingFang SC",sans-serif;font-size:16px;line-height:1.7}button{font:inherit;cursor:pointer}a{color:inherit}button,a{-webkit-tap-highlight-color:transparent}.shell{width:min(1220px,calc(100% - 80px));margin:auto}.header{padding:28px 0 0;display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative;z-index:2}.brand{display:flex;gap:11px;align-items:center;font-size:18px;font-weight:700;letter-spacing:.02em}.app-mark{height:38px;width:38px;border-radius:12px;display:grid;place-items:center;background:#8a6ecb;color:white;font-size:21px;box-shadow:0 7px 16px #7555b025}.header-extra{display:flex;align-items:center;gap:18px;font-size:12px;color:var(--muted)}.contact-anchor{border:1px solid #dfd5ed;min-height:42px;display:inline-flex;align-items:center;justify-content:center;border-radius:30px;padding:8px 17px;text-decoration:none;background:#ffffff85}.hero{position:relative;padding:76px 215px 80px;min-height:610px;text-align:center;isolation:isolate}.hero:before{content:"";position:absolute;left:50%;top:5%;width:min(960px,105%);height:90%;transform:translateX(-50%);background:radial-gradient(ellipse at 50% 65%,#dfd0fb88 0%,#efe4fe66 34%,#f8f6fc00 72%);z-index:-2}.halo{position:absolute;left:50%;top:41%;width:min(870px,90%);height:280px;transform:translate(-50%,-10%) rotate(-9deg);border:1px solid #cfc2e661;border-radius:50%;z-index:-1}.hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid #e2d8ef;background:#fff9;border-radius:30px;padding:6px 13px;color:#725b96;font-size:12px;line-height:1.6;box-shadow:0 4px 14px #7f669908}.hero-badge:before{content:"";display:block;height:6px;width:6px;border-radius:50%;background:#8a6aca}.hero h1{font-size:clamp(44px,4.7vw,66px);line-height:1.3;letter-spacing:-.065em;font-weight:750;margin:23px -60px 20px}.hero h1 span{display:block;color:var(--purple)}.description{font-size:16px;color:var(--muted);max-width:445px;margin:0 auto 28px;line-height:1.9}.cta{border:1px solid #6248aa;background:var(--purple);border-radius:50px;min-height:56px;padding:13px 31px;color:#fff;display:inline-flex;justify-content:center;align-items:center;gap:28px;font-size:16px;font-weight:600;box-shadow:0 8px 18px #7053bd25,0 2px 3px #50358316;transition:transform .18s,box-shadow .18s}.cta:hover{background:var(--dark-purple);transform:translateY(-2px);box-shadow:0 12px 21px #7053bd30}.cta span{font-size:22px;line-height:1}.release{font-size:12px;color:var(--muted);margin:17px 0 0;letter-spacing:.03em}.float-card{position:absolute;text-align:left;background:#ffffffd6;border:1px solid #fff;border-radius:19px;box-shadow:0 17px 40px -17px #72608233,0 1px 2px #8f7a9f13;backdrop-filter:blur(10px);padding:19px;z-index:1}.course-card{left:0;top:177px;width:215px;transform:rotate(-6deg)}.exam-card{right:0;top:248px;width:212px;transform:rotate(6deg)}.float-heading{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-bottom:14px;font-size:12px;color:var(--muted)}.small-icon{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;background:#eee6fb;color:var(--purple);font-size:13px}.float-card h2{font-size:16px;font-weight:600;line-height:1.5;margin:0 0 6px}.float-card p{font-size:12px;color:var(--muted);margin:0;line-height:1.8}.mini-chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:15px}.mini-chip{font-size:12px;background:#f2ebfd;color:#73588f;border-radius:6px;padding:4px 7px}.exam-line{border-top:1px solid #eee8f5;padding-top:11px;margin-top:13px;font-size:12px;color:var(--muted);display:flex;align-items:center;justify-content:space-between;gap:6px}.sample-label{font-size:12px;color:#81768f!important;border-top:1px solid #eee8f5;margin-top:12px!important;padding-top:10px}.spark{position:absolute;color:#a692c8;font-size:24px;z-index:-1}.spark-one{left:15%;top:94px}.spark-two{right:16%;top:168px;font-size:18px}.spark-three{left:28%;bottom:45px;font-size:15px}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;margin-top:0;padding:0 0 41px}.feature{background:#fff9;border:1px solid #e8e0f0;border-radius:18px;padding:24px 25px;display:grid;grid-template-columns:37px 1fr;gap:12px}.feature-icon{width:33px;height:33px;border-radius:10px;background:#ede5f8;color:var(--purple);font-size:16px;display:grid;place-items:center}.feature h2{font-size:16px;margin:2px 0 9px;font-weight:600}.feature p{font-size:14px;color:var(--muted);line-height:1.85;margin:0}.community{border-top:1px solid var(--line);padding:30px 0;display:flex;justify-content:space-between;gap:25px;align-items:center}.community-title{font-size:20px;letter-spacing:-.03em;margin:0 0 6px;font-weight:600}.community-sub{font-size:14px;color:var(--muted);margin:0}.group-pill{display:flex;align-items:center;gap:11px;padding:6px 7px 6px 21px;min-height:56px;border:1px solid #dfd5eb;border-radius:40px;background:#fff8;white-space:nowrap;font-size:14px}.group-pill strong{font-size:15px;font-weight:600}.copy{font-size:12px;background:#eae1f7;border:0;border-radius:28px;color:var(--dark-purple);min-height:44px;padding:7px 17px}.copy:hover{background:#ded1f0}.footer{border-top:1px solid var(--line);padding:23px 0 35px;font-size:12px;color:var(--muted);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start}.footer p{margin:0;line-height:1.9}.help{max-width:350px}.help summary{cursor:pointer;min-height:44px}.help p{margin-top:8px}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #477973;outline-offset:4px}
+    @media(max-width:1050px){.shell{width:calc(100% - 48px)}.hero{padding:67px 170px 73px;min-height:600px}.hero h1{font-size:50px;margin-left:-60px;margin-right:-60px}.description{font-size:15px}.course-card{width:180px;padding:16px;top:205px}.exam-card{width:180px;padding:16px;top:269px}.float-card h2{font-size:14px}.float-heading{font-size:12px}.features{gap:12px}.feature{padding:22px 17px;grid-template-columns:1fr;gap:10px}.feature h2{margin-top:0}.group-pill{padding-left:16px}.hero-badge{font-size:12px}}
+    @media(max-width:760px){.hero{padding:57px 25px 32px;min-height:auto;display:flex;flex-direction:column;align-items:center}.hero h1{font-size:clamp(40px,7vw,56px);margin:24px 0 21px}.description{max-width:430px}.float-card{position:relative;top:auto;left:auto;right:auto;width:auto;min-width:0;flex:1}.float-showcase{display:grid;grid-template-columns:1fr 1fr;gap:17px;margin-top:44px;width:100%;max-width:500px}.course-card{transform:rotate(-4deg);margin-top:0}.exam-card{transform:rotate(4deg);margin-top:22px;align-self:start}.float-card h2{font-size:15px}.halo{top:30%;height:240px}.hero:before{height:65%;top:6%}.spark-one{left:2%;top:80px}.spark-two{right:2%;top:166px}.spark-three{bottom:43%;left:10%}.features{padding-top:24px;gap:13px}.feature{padding:19px 16px}.feature h2{font-size:15px}.feature p{font-size:14px}.community{flex-direction:column;align-items:flex-start;gap:18px}.community-title{font-size:19px}.footer{grid-template-columns:1fr;gap:12px}.help{max-width:none}}
+    @media(max-width:520px){.shell{width:calc(100% - 40px)}.header{padding-top:21px}.brand{font-size:16px;gap:9px}.app-mark{width:33px;height:33px;border-radius:10px;font-size:19px}.header-extra{font-size:12px;gap:0}.header-extra .producer{display:none}.contact-anchor{min-height:44px;padding:8px 12px;font-size:12px}.hero{padding:40px 0 18px}.hero h1{font-size:clamp(35px,9.2vw,47px);letter-spacing:-.055em;margin-bottom:18px;line-height:1.34}.hero-badge{font-size:12px;padding:5px 11px}.description{font-size:14px;max-width:310px;line-height:1.95;margin-bottom:24px}.cta{width:100%;max-width:310px;padding:12px 21px;min-height:54px}.release{font-size:12px;margin-top:15px}.float-showcase{gap:11px;margin-top:35px;padding:0 2px}.float-card{border-radius:14px;padding:13px 12px}.float-card h2{font-size:14px}.float-heading{font-size:12px;gap:5px;margin-bottom:11px}.small-icon{width:23px;height:23px;font-size:12px;flex:none}.float-card p,.sample-label{font-size:12px}.mini-chips{gap:4px;margin-top:11px}.mini-chip{font-size:12px;padding:3px 5px}.exam-line{font-size:12px;display:block}.exam-line span{display:block}.sample-label{line-height:1.7}.features{grid-template-columns:1fr;gap:12px;padding:25px 0 27px}.feature{grid-template-columns:33px 1fr;padding:20px 18px;gap:13px;border-radius:15px}.feature h2{font-size:16px;margin-top:2px}.feature p{font-size:14px}.community{padding:24px 0}.community-sub{font-size:14px}.group-pill{width:100%;justify-content:space-between;font-size:13px;gap:7px;padding-left:15px}.group-pill strong{font-size:14px}.copy{padding:7px 12px;font-size:12px}.spark-one{font-size:19px;left:0;top:128px}.spark-two{font-size:14px;right:1%;top:214px}.footer{padding-top:20px;padding-bottom:28px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cta{transition:none}.cta:hover{transform:none}}
+
+    html{color-scheme:light;-webkit-text-size-adjust:100%}[hidden]{display:none!important}
+    .download-zone{width:100%;max-width:390px;margin:0 auto;position:relative;z-index:2}.cta{text-decoration:none}.download-status{font-size:12px;line-height:1.8;color:var(--muted);margin:12px auto 0;max-width:370px;overflow-wrap:anywhere}.download-status:empty{display:none}.release{line-height:1.9;letter-spacing:0}.release-details{margin:13px auto 0;font-size:12px;color:var(--muted);max-width:350px}.release-details summary{cursor:pointer;min-height:36px;display:inline-flex;align-items:center;gap:6px}.release-details summary:after{content:"＋";color:var(--purple)}.release-details[open] summary:after{content:"－"}.release-details p{white-space:pre-wrap;line-height:1.9;text-align:left;margin:5px 0 0;padding:15px 17px;border:1px solid var(--line);border-radius:14px;background:#fffc}.download-hint{font-size:12px;color:var(--muted);margin:9px 0 0;line-height:1.8}.footer .help{max-width:390px}.help[open]{border-radius:14px;padding:15px 17px;background:#fff9;border:1px solid var(--line)}.help summary{min-height:36px;list-style-position:inside}.help p{line-height:1.9}.copy-feedback{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:10;max-width:calc(100% - 32px);width:max-content;padding:12px 20px;background:#473762;color:white;border-radius:14px;box-shadow:0 10px 30px #47376230;font-size:14px;line-height:1.7;text-align:center}.skip-link{position:absolute;top:8px;left:8px;z-index:10;padding:10px 18px;border-radius:12px;background:white;color:var(--dark-purple);transform:translateY(-180%)}.skip-link:focus{transform:none}
+    @media(min-width:761px){.hero{min-height:640px}.course-card{top:190px}.exam-card{top:262px}}
+    @media(max-width:520px){.download-zone{max-width:330px}.release-details summary{min-height:44px}.download-status{max-width:310px}.download-hint{padding:0 5px}.hero{padding-top:40px}.footer .help{max-width:none}}
   </style>
-  <script src="app.js" defer></script>
 </head>
 <body>
-  <main>
-    <h1>吉商课程表</h1>
-    <p id="status" role="status">正在查询下载信息…</p>
-    <section id="details" hidden>
-      <p id="version"></p>
-      <p id="notes"></p>
-      <a id="download" hidden rel="noreferrer">手动下载 APK</a>
-      <p class="secondary">如果浏览器没有自动开始下载，请点击上方按钮。安装前请核对来源和版本；下载与安装均由浏览器和 Android 系统处理。</p>
-      <p class="secondary">SHA-256：<code id="sha256"></code></p>
-    </section>
-  </main>
+  <a class="skip-link" href="#download-area">跳到下载区域</a>
+  <div class="shell">
+    <header class="header">
+      <div class="brand"><span class="app-mark" aria-hidden="true">吉</span>吉商课程表</div>
+      <div class="header-extra"><span class="producer">刺猬篮球出品</span><a class="contact-anchor" href="#community">交流与反馈 ↗</a></div>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="app-title">
+        <div class="halo" aria-hidden="true"></div><span class="spark spark-one" aria-hidden="true">✧</span><span class="spark spark-two" aria-hidden="true">✦</span><span class="spark spark-three" aria-hidden="true">✧</span>
+        <div class="hero-badge">GitHub 备用下载 · Android 正式版</div>
+        <h1 id="app-title">把一周的安排，<span>轻轻放进口袋。</span></h1>
+        <p class="description">课程、周次，还有考试。<br>让繁杂的安排变得清楚，给生活多留一点空间。</p>
+        <div class="download-zone" id="download-area">
+          <div id="details" hidden>
+            <a class="cta" id="download" hidden rel="noreferrer">下载 Android 安装包 <span aria-hidden="true">↓</span></a>
+            <p class="release" id="version"></p>
+            <details class="release-details"><summary>这次更新了什么</summary><p id="notes"></p></details>
+          </div>
+          <p class="download-status" id="status" role="status" aria-live="polite">正在获取正式版下载信息…</p>
+          <noscript><p class="download-hint">请在系统浏览器中开启 JavaScript 后刷新，以获取正式安装包。需要帮助可联系下方 QQ 群。</p></noscript>
+          <p class="download-hint">微信或 QQ 内无法下载？请用系统浏览器打开。</p>
+          <p class="download-hint">当前为 GitHub 备用入口，<a href="https://kechengbiao-68f.pages.dev/" rel="noreferrer">也可前往主站 ↗</a>。</p>
+        </div>
+        <div class="float-showcase">
+          <div class="float-card course-card"><div class="float-heading"><span class="small-icon" aria-hidden="true">▦</span><span>这一周 · 第 4 周</span></div><h2>数据分析基础</h2><p>周一 · 第 1–2 节<br>教学楼 A201</p><div class="mini-chips"><span class="mini-chip">4–8 周</span><span class="mini-chip">连续两节</span></div><p class="sample-label">功能示意 · 非真实课表</p></div>
+          <div class="float-card exam-card"><div class="float-heading"><span class="small-icon" aria-hidden="true">✓</span><span>考试安排</span></div><h2>校园文化导论</h2><p>考试信息，集中查看。</p><div class="exam-line"><span>示例考场</span><span>教学楼 C105</span></div><p class="sample-label">功能示意 · 非真实课表</p></div>
+        </div>
+      </section>
+      <section class="features" aria-label="主要功能">
+        <article class="feature"><span class="feature-icon" aria-hidden="true">↧</span><div><h2>把课表带进来</h2><p>Excel、学校课表都支持导入，少一些重复输入。</p></div></article>
+        <article class="feature"><span class="feature-icon" aria-hidden="true">▦</span><div><h2>让每一周对得上</h2><p>指定上课周次，保留连堂节数；考试安排也可导入查看。</p></div></article>
+        <article class="feature"><span class="feature-icon" aria-hidden="true">↻</span><div><h2>下次打开，检查更新</h2><p>有新版时在 App 内提示，由你决定是否安装。</p></div></article>
+      </section>
+      <section class="community" id="community" aria-labelledby="community-title">
+        <div><h2 class="community-title" id="community-title">一起把小工具，做得更顺手。</h2><p class="community-sub">使用中有建议或问题？欢迎来聊聊。</p></div>
+        <div class="group-pill"><span>QQ 群</span><strong>549013926</strong><button class="copy" id="copy-group" type="button" aria-label="复制 QQ 群号 549013926">复制群号</button></div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>刺猬篮球出品 · 个人开发的校园工具，非学校官方应用。<br>为日常减一点负担，为校园添一点从容。</p>
+      <details class="help">
+        <summary>安装与更新帮助</summary>
+        <p>请点击上方下载按钮开始下载。打开或刷新本页不会自动下载；下载完成后，按浏览器和 Android 系统提示确认安装。支持的系统版本以上方发布信息为准。</p>
+        <p>已安装同签名正式版的同学可直接覆盖安装，通常无需卸载。旧版未配置更新地址的用户，需要先通过本页手动覆盖安装一次。</p>
+        <p>安装后，App 会在打开或回到前台时按检查间隔查询新版，也可在设置页手动检查；不是后台实时推送，不会静默安装。</p>
+        <p>若提示签名不一致，请先保留需要的数据并联系 QQ 群，勿直接卸载；卸载会删除本地课表、考试和设置。</p>
+      </details>
+    </footer>
+  </div>
+  <p class="copy-feedback" id="copy-feedback" role="status" hidden></p>
+  <script>
+    (() => {
+      const button = document.getElementById("copy-group");
+      const feedback = document.getElementById("copy-feedback");
+      let timer;
+      button.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText("549013926");
+          feedback.textContent = "已复制群号 549013926，打开 QQ 搜索群即可";
+        } catch (_) {
+          feedback.textContent = "QQ群：549013926，可长按群号或手动复制";
+        }
+        feedback.hidden = false;
+        clearTimeout(timer);
+        timer = setTimeout(() => { feedback.hidden = true; }, 4500);
+      });
+    })();
+  </script>
 </body>
 </html>

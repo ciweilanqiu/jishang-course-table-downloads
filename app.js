@@ -1,57 +1,29 @@
-"use strict";
-
-function checkedRelease(manifest) {
-  if (manifest.applicationId !== "com.coursetable.app" ||
-      !["debug", "release"].includes(manifest.channel) ||
-      !Number.isSafeInteger(manifest.versionCode) || manifest.versionCode <= 0 ||
-      !Number.isSafeInteger(manifest.minSdk) || manifest.minSdk < 1 ||
-      typeof manifest.versionName !== "string" || !manifest.versionName.trim() ||
-      typeof manifest.releaseNotes !== "string" || !manifest.releaseNotes.trim() ||
-      typeof manifest.sha256 !== "string" || !/^[a-f\d]{64}$/i.test(manifest.sha256)) {
-    throw new Error("发布信息不完整");
-  }
-  const url = new URL(manifest.downloadUrl);
-  if (url.protocol !== "https:" || url.hostname !== "github.com" ||
-      url.username || url.password || url.search || url.hash || url.port ||
-      !/^\/ciweilanqiu\/jishang-course-table-downloads\/releases\/download\/[^/]+\/[^/]+\.apk$/.test(url.pathname)) {
-    throw new Error("下载地址不是已确认的版本化 GitHub Release 资产");
-  }
-  return url;
-}
+import { checkedRelease } from "./manifest.mjs";
 
 async function showRelease() {
   const status = document.getElementById("status");
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 8000);
   try {
-    const response = await fetch("update.json", { cache: "no-store", signal: controller.signal });
+    const response = await fetch("./update.json", { cache: "no-store", signal: controller.signal });
     if (!response.ok) throw new Error("尚未发布");
-    const manifest = await response.json();
+    const text = await response.text();
+    if (new TextEncoder().encode(text).length > 65536) throw new Error("清单过大");
+    const manifest = JSON.parse(text);
     const url = checkedRelease(manifest);
     document.getElementById("version").textContent =
-      `版本 ${manifest.versionName}（${manifest.channel === "debug" ? "调试体验版" : "正式版"}）`;
+      `版本 ${manifest.versionName} · ${(manifest.fileSize / 1048576).toFixed(1)} MB · Android ${manifest.minSdk === 29 ? "10" : `API ${manifest.minSdk}`} 及以上`;
     document.getElementById("notes").textContent = manifest.releaseNotes;
-    document.getElementById("sha256").textContent = manifest.sha256.toUpperCase();
     const button = document.getElementById("download");
     button.href = url.href;
     button.hidden = false;
     document.getElementById("details").hidden = false;
-    status.textContent = "即将前往 GitHub 下载；如未自动开始，请使用手动下载按钮。";
-
-    const key = `auto-download:${manifest.versionCode}:${manifest.sha256}`;
-    let firstVisit = false;
-    try {
-      firstVisit = sessionStorage.getItem(key) !== "1";
-      if (firstVisit) sessionStorage.setItem(key, "1");
-    } catch (_) {
-      // 禁用站点存储时保留手动按钮，不反复自动跳转。
-    }
-    if (firstVisit) setTimeout(() => { window.location.assign(url.href); }, 1500);
+    status.textContent = "点击上方下载按钮开始下载，打开本页不会自动下载。";
   } catch (_) {
-    status.textContent = "下载暂未开放或发布信息暂不可用，请稍后再试。";
+    status.textContent = "下载暂未开放或发布信息暂不可用，请稍后再试，或使用下方主站入口。";
   } finally {
     clearTimeout(timeout);
   }
 }
 
-document.addEventListener("DOMContentLoaded", showRelease);
+showRelease();

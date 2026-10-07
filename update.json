@@ -1,0 +1,12 @@
+{
+  "applicationId": "com.coursetable.app",
+  "channel": "release",
+  "versionCode": 5,
+  "versionName": "1.2.1",
+  "minSdk": 29,
+  "releaseNotes": "接入应用内更新检查。\n保留安装包瘦身优化，修复考试入口导入课表及开学日期重复打开提前一天的问题。\n旧版尚未配置更新地址，请先通过本页覆盖安装一次。",
+  "downloadUrl": "https://github.com/ciweilanqiu/jishang-course-table-downloads/releases/download/v1.2.1-code5/CourseTable-v1.2.1-code5-release.apk",
+  "sha256": "435CBF933C4820959CA32091DBE88D67A2FE39F150115409F8BB8C512BE16512",
+  "fileSize": 9079168,
+  "publishedAt": "2026-10-06T06:20:59.4465423+00:00"
+}
